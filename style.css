@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #000; /* Чёрный фон */
+  overflow: hidden;
+  height: 100vh;
+  cursor: pointer;
+}
+
+/* Стили для контейнера с фоном */
+.pulse-background {
+  position: absolute;
+  left: 40%;
+  width: 100vw; /* Ширина контейнера */
+  height: 100vh; /* Высота контейнера */
+  background-image: url('./img/right.png'); /* Устанавливаем картинку как фон */
+  background-repeat: no-repeat; /* Отключаем повторение фона */
+  background-size: 70% 120%; /* Начальный размер фона */
+  animation: skewAnimation 5s ease-in infinite alternate-reverse;
+  filter: blur(25px);
+}
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 10% 10%, rgb(0, 195, 255), rgba(255, 0, 225, 0.638));
+  mix-blend-mode: overlay; /* Накладываем эффект */
+  animation: gradientFlow1 5s ease-in infinite; /* Увеличиваем время анимации */
+  z-index: 2;
+}
+.pulse-background-left{
+  position: absolute;
+  left: 5%;
+  width: 100vw; /* Ширина контейнера */
+  height: 100vh; /* Высота контейнера */
+  background-image: url('./img/left.png'); /* Устанавливаем картинку как фон */
+  background-repeat: no-repeat; /* Отключаем повторение фона */
+  background-size: 50% 100%; /* Начальный размер фона */
+  filter: blur(25px);
+  /* animation: skewAnimation 5s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate; */
+}
+/* Анимация искажения правого края */
+@keyframes skewAnimation {
+  0% {
+    background-size: 70% 120%; /* Начальный размер фона */
+  }
+  100% {
+    background-size: 68% 120%; /* Конечный размер фона */
+  }
+}
+@keyframes gradientFlow1 {
+  0% {
+    opacity: 0;
+  }
+  25%{
+    opacity: 0.25;
+  }
+  50%{
+    opacity: 0.8;
+  }
+  75%{
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 0;
+  }
+}
